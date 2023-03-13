@@ -1,6 +1,8 @@
 import numpy as np
 import cv2 as cv
 
+# version 0.1
+
 def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj):
     pass
     return (spodnja_meja_koze,zgornja_meja_koze)
@@ -14,8 +16,6 @@ def obdelaj_sliko(slika, okno_sirina, okno_visina,barva_koze_spodaj, barva_koze_
 def prestej_piksle_z_barvo_koze(podslika, barva_koze_spodaj, barva_koze_zgoraj):
     pass
 
-
-
 cap = cv.VideoCapture(0)
 ret = cap.set(cv.CAP_PROP_FRAME_WIDTH,260)
 ret = cap.set(cv.CAP_PROP_FRAME_HEIGHT,300)
@@ -24,9 +24,7 @@ if not cap.isOpened():
     exit()
 while True:
     # Capture frame-by-frame
-    
     ret, frame = cap.read()
-    
     # if frame is read correctly ret is True
     if not ret:
         print("Can't receive frame (stream end?). Exiting ...")
