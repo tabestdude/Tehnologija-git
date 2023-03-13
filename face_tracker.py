@@ -1,7 +1,7 @@
 import numpy
 import cv2
 
-# version 0.2
+# version 0.3
 
 def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj):
     pass
