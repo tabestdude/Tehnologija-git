@@ -1,16 +1,17 @@
-<<<<<<< HEAD
-import numpy as np
-import cv2 as cv
-=======
 import numpy
 import cv2
 
->>>>>>> e68f1da304690e99f795b30acc32bd407abf34f3
 # version 0.3
 
 def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj):
-    pass
-    return (spodnja_meja_koze,zgornja_meja_koze)
+    # [0] - x(vodoravno) // [1] - y(navpicno)
+    print("tup2[0]:{}", levo_zgoraj[0])
+    print("tup2[1]:{}", levo_zgoraj[1])
+    print("tup2[0]:{}", desno_spodaj[0])
+    print("tup2[1]:{}", desno_spodaj[1])
+    spodnja_meja_koze = 0
+    zgornja_meja_koze = 0
+    return (spodnja_meja_koze, zgornja_meja_koze)
 
 def zmanjsaj_sliko(slika):
     pass
@@ -23,8 +24,6 @@ def prestej_piksle_z_barvo_koze(podslika, barva_koze_spodaj, barva_koze_zgoraj):
 
 
 cap = cv2.VideoCapture(0)
-ret = cap.set(cv2.CAP_PROP_FRAME_WIDTH,260)
-ret = cap.set(cv2.CAP_PROP_FRAME_HEIGHT,300)
 
 if not cap.isOpened():
     print("Cannot open camera")
@@ -62,6 +61,7 @@ cv2.setMouseCallback("PrvaSlika", draw_rectangle)
 firstRet, firstFrame = cap.read()
 firstRet, firstFrame = cap.read()
 firstRet, firstFrame = cap.read()
+firstRet, firstFrame = cap.read()
 img = firstFrame
 while True:
     cv2.imshow('PrvaSlika', img)
@@ -72,6 +72,7 @@ while True:
             cv2.imshow('PrvaSlika', img)
             break
 
+lower_upper_skin_color_limit = doloci_barvo_koze(img, (ix, iy), (jx, jy))
 cv2.namedWindow("Kamera")
 while True:
     # Capture frame-by-frame
